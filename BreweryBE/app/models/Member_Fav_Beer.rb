@@ -1,0 +1,3 @@
+class MemberFavBeer < ApplicationRecord 
+    
+end

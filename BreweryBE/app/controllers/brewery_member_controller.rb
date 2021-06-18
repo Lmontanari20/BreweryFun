@@ -1,0 +1,3 @@
+class BreweryMemberController < ApplicationController
+    
+end

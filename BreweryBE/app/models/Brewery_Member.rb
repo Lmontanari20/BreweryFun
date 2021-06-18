@@ -1,0 +1,3 @@
+class BreweryMember < ApplicationRecord
+    
+end

@@ -10,6 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_18_193315) do
 
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.integer "brewery_id", null: false
+    t.string "type"
+    t.float "alc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+  end
+
+  create_table "breweries", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "address"
+    t.boolean "food"
+    t.boolean "twentyone"
+    t.boolean "dog"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "brewery_members", force: :cascade do |t|
+    t.integer "brewery_id", null: false
+    t.integer "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["brewery_id"], name: "index_brewery_members_on_brewery_id"
+    t.index ["member_id"], name: "index_brewery_members_on_member_id"
+  end
+
+  create_table "member_fav_beers", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "beer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_member_fav_beers_on_beer_id"
+    t.index ["member_id"], name: "index_member_fav_beers_on_member_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "favBeer"
+    t.text "bio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "beers", "breweries"
+  add_foreign_key "brewery_members", "breweries"
+  add_foreign_key "brewery_members", "members"
+  add_foreign_key "member_fav_beers", "beers"
+  add_foreign_key "member_fav_beers", "members"
 end
