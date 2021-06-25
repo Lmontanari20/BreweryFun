@@ -1,0 +1,11 @@
+<h2>List of all the beers</h2>
+
+<% for beer in @beers do %>
+    <h3><%= beer.name %><h3>
+    <ul>
+        <li><%= beer.typeBeer %> </li>
+        <li><%= beer.alc %>%</li>
+        <li><%= beer.brewery.name %> </li>
+    </ul>
+    <br>
+<% end %>
