@@ -4,3 +4,5 @@
 <h3>Alcohol Percentage: <%= @beer.alc %></h3>
 <h3>Brewery Name: <%= @beer.brewery.name %></h3>
 <h3>Brewery Location: <%= @beer.brewery.city%><h3>
+<%= button_to "Edit", edit_beer_url(@beer), method: "get"%>
+<%= button_to "New", new_beer_url(), method: "get"%>

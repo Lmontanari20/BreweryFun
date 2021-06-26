@@ -1479,3 +1479,435 @@ Processing by BeerController#show as HTML
 Completed 200 OK in 253ms (Views: 201.4ms | ActiveRecord: 2.7ms | Allocations: 2507298)
 
 
+Started GET "/beer/4/edit" for ::1 at 2021-06-26 13:44:59 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  [1m[36mBeer Load (4.5ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  Rendered beer/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 50571)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 95655)
+Completed 500 Internal Server Error in 284ms (ActiveRecord: 7.3ms | Allocations: 2847157)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= render "newEdit" beer: @beer%>
+):
+1:    <%= render "newEdit" beer: @beer%>
+  
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+app/views/beer/edit.html.erb:1: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/beer/4/edit" for ::1 at 2021-06-26 13:46:16 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBeer Load (1.3ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  Rendered beer/_newEdit.html.erb (Duration: 148.8ms | Allocations: 1679328)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 159.7ms | Allocations: 1804790)
+  Rendered layout layouts/application.html.erb (Duration: 165.1ms | Allocations: 1850723)
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 1.3ms | Allocations: 2555187)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    12:     <%= f.number_field :alc, step: :any %>
+    13:     <br><br>
+    14:     <%= f.label :brewery %>
+    15:     <%= f.collection_select(:brewery_id, @breweries, :id, :name, include_blank: true)%>
+    16:     <br><br>
+    17:     <%= f.submit :Add%>
+    18: <% end %>
+  
+app/views/beer/_newEdit.html.erb:15
+app/views/beer/_newEdit.html.erb:4
+app/views/beer/edit.html.erb:1
+Started GET "/beer/4/edit" for ::1 at 2021-06-26 13:46:53 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  [1m[36mBeer Load (1.7ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.6ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:15
+  Rendered beer/_newEdit.html.erb (Duration: 279.1ms | Allocations: 3212236)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 284.6ms | Allocations: 3284770)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 350.6ms | Allocations: 4015504)
+Completed 200 OK in 659ms (Views: 354.5ms | ActiveRecord: 21.8ms | Allocations: 7525864)
+
+
+Started GET "/beer/4/edit" for ::1 at 2021-06-26 13:50:42 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBeer Load (1.2ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.1ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 138.7ms | Allocations: 1519691)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 149.4ms | Allocations: 1644318)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 222.2ms | Allocations: 2371994)
+Completed 200 OK in 287ms (Views: 243.1ms | ActiveRecord: 2.4ms | Allocations: 3100392)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:50:50 -0700
+Processing by BeerController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 128.2ms | Allocations: 1432209)
+  Rendered beer/new.html.erb within layouts/application (Duration: 135.1ms | Allocations: 1522461)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 195.5ms | Allocations: 2218245)
+Completed 200 OK in 225ms (Views: 202.5ms | ActiveRecord: 1.2ms | Allocations: 2513347)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:50:50 -0700
+Processing by BeerController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 133.1ms | Allocations: 1432102)
+  Rendered beer/new.html.erb within layouts/application (Duration: 138.0ms | Allocations: 1502638)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 203.9ms | Allocations: 2198420)
+Completed 200 OK in 229ms (Views: 212.4ms | ActiveRecord: 1.2ms | Allocations: 2462986)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:51:15 -0700
+Processing by BeerController#new as HTML
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:11:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (3.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 287.6ms | Allocations: 3187885)
+  Rendered beer/new.html.erb within layouts/application (Duration: 292.8ms | Allocations: 3259420)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 358.4ms | Allocations: 3955204)
+Completed 200 OK in 640ms (Views: 362.4ms | ActiveRecord: 23.5ms | Allocations: 7064793)
+
+
+Started GET "/beer/1/edit" for ::1 at 2021-06-26 13:51:24 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (3.7ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 139.2ms | Allocations: 1453987)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 144.7ms | Allocations: 1526330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 211.2ms | Allocations: 2222113)
+Completed 200 OK in 277ms (Views: 222.1ms | ActiveRecord: 4.9ms | Allocations: 2903433)
+
+
+Started PATCH "/beer/1" for ::1 at 2021-06-26 13:53:04 -0700
+Processing by BeerController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Contains no Juice", "typeBeer"=>"Hazy IPA", "alc"=>"7.2", "brewery_id"=>"1"}, "commit"=>"Update", "id"=>"1"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:27:in `update'
+  [1m[36mBeer Load (1.7ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mBrewery Load (1.6ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mBeer Update (1.6ms)[0m  [1m[33mUPDATE "beers" SET "alc" = ?, "updated_at" = ? WHERE "beers"."id" = ?[0m  [["alc", 7.2], ["updated_at", "2021-06-26 20:53:07.210575"], ["id", 1]]
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+Redirected to http://localhost:3000/beer/1
+Completed 302 Found in 704ms (ActiveRecord: 28.4ms | Allocations: 7395648)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:53:07 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.3ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (3.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 1205.3ms | Allocations: 12805363)
+  Rendered layout layouts/application.html.erb (Duration: 1219.1ms | Allocations: 12937291)
+Completed 500 Internal Server Error in 1278ms (ActiveRecord: 4.4ms | Allocations: 13529386)
+
+
+  
+ActionView::Template::Error (undefined method `edit_beer' for #<ActionView::Base:0x00000000011af8>
+Did you mean?  edit_beer_url):
+    4: <h3>Alcohol Percentage: <%= @beer.alc %></h3>
+    5: <h3>Brewery Name: <%= @beer.brewery.name %></h3>
+    6: <h3>Brewery Location: <%= @beer.brewery.city%><h3>
+    7: <%= link_to "Edit", edit_beer(@beer)%>
+  
+app/views/beer/show.html.erb:7
+Started GET "/beer/1" for ::1 at 2021-06-26 13:53:44 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.5ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.4ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 54.8ms | Allocations: 598108)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 128.6ms | Allocations: 1383035)
+Completed 200 OK in 192ms (Views: 149.4ms | ActiveRecord: 2.8ms | Allocations: 2104761)
+
+
+Started GET "/beer/1/edit" for ::1 at 2021-06-26 13:53:50 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.2ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.5ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 129.3ms | Allocations: 1526234)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 140.7ms | Allocations: 1650861)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 205.5ms | Allocations: 2353717)
+Completed 200 OK in 260ms (Views: 216.3ms | ActiveRecord: 2.7ms | Allocations: 2947318)
+
+
+Started PATCH "/beer/1" for ::1 at 2021-06-26 13:53:56 -0700
+Processing by BeerController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Contains no Juice", "typeBeer"=>"Hazy IPA", "alc"=>"6.2", "brewery_id"=>"1"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mBeer Load (3.8ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mBeer Update (2.0ms)[0m  [1m[33mUPDATE "beers" SET "alc" = ?, "updated_at" = ? WHERE "beers"."id" = ?[0m  [["alc", 6.2], ["updated_at", "2021-06-26 20:53:56.580438"], ["id", 1]]
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+Redirected to http://localhost:3000/beer/1
+Completed 302 Found in 227ms (ActiveRecord: 10.9ms | Allocations: 2474353)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:53:56 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.2ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.5ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 54.7ms | Allocations: 565987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 206.1ms | Allocations: 2151818)
+Completed 200 OK in 256ms (Views: 216.3ms | ActiveRecord: 2.7ms | Allocations: 2703180)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:54:25 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.3ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 59.6ms | Allocations: 663784)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 132.5ms | Allocations: 1448704)
+Completed 200 OK in 197ms (Views: 152.8ms | ActiveRecord: 2.5ms | Allocations: 2172271)
+
+
+Started POST "/beer/1/edit" for ::1 at 2021-06-26 13:54:27 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/beer/1/edit"):
+  
+Started GET "/beer/1" for ::1 at 2021-06-26 13:54:45 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (4.1ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 53.8ms | Allocations: 611573)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 127.0ms | Allocations: 1396493)
+Completed 200 OK in 197ms (Views: 147.3ms | ActiveRecord: 5.4ms | Allocations: 2122259)
+
+
+Started GET "/beer/1/edit" for ::1 at 2021-06-26 13:54:46 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.2ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 136.9ms | Allocations: 1519681)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 150.0ms | Allocations: 1644308)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 213.8ms | Allocations: 2340090)
+Completed 200 OK in 271ms (Views: 224.4ms | ActiveRecord: 2.4ms | Allocations: 2931595)
+
+
+Started PATCH "/beer/1" for ::1 at 2021-06-26 13:54:51 -0700
+Processing by BeerController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Contains no Juice", "typeBeer"=>"Hazy IPA", "alc"=>"6.2", "brewery_id"=>"1"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mBeer Load (1.4ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mBrewery Load (2.8ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beer_controller.rb:28:in `update'
+Redirected to http://localhost:3000/beer/1
+Completed 302 Found in 182ms (ActiveRecord: 6.2ms | Allocations: 2001700)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:54:52 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.3ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 52.0ms | Allocations: 579456)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 124.2ms | Allocations: 1332484)
+Completed 200 OK in 174ms (Views: 133.9ms | ActiveRecord: 2.5ms | Allocations: 1883846)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:55:32 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (2.1ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.5ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 446.4ms | Allocations: 4754108)
+  Rendered layout layouts/application.html.erb (Duration: 449.6ms | Allocations: 4799237)
+Completed 500 Internal Server Error in 521ms (ActiveRecord: 3.6ms | Allocations: 5503604)
+
+
+  
+ActionView::Template::Error (undefined method `to' for #<ActionView::Base:0x00000000012ac0>
+Did you mean?  t):
+    5: <h3>Brewery Name: <%= @beer.brewery.name %></h3>
+    6: <h3>Brewery Location: <%= @beer.brewery.city%><h3>
+    7: <%= button_to "Edit", edit_beer_url(@beer), method: "get"%>
+    8: <%= button to "New", new_beer_url, method: "get"%>
+  
+app/views/beer/show.html.erb:8
+Started GET "/beer/1" for ::1 at 2021-06-26 13:56:15 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.5ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (3.3ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 446.6ms | Allocations: 4727403)
+  Rendered layout layouts/application.html.erb (Duration: 450.5ms | Allocations: 4775400)
+Completed 500 Internal Server Error in 525ms (ActiveRecord: 4.8ms | Allocations: 5479766)
+
+
+  
+ActionView::Template::Error (undefined method `to' for #<ActionView::Base:0x00000000012f70>
+Did you mean?  t):
+    5: <h3>Brewery Name: <%= @beer.brewery.name %></h3>
+    6: <h3>Brewery Location: <%= @beer.brewery.city%><h3>
+    7: <%= button_to "Edit", edit_beer_url(@beer), method: "get"%>
+    8: <%= button to "New", new_beer_url(), method: "get"%>
+  
+app/views/beer/show.html.erb:8
+Started GET "/beer/1" for ::1 at 2021-06-26 13:56:36 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.4ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.4ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 58.5ms | Allocations: 648720)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 131.8ms | Allocations: 1434090)
+Completed 200 OK in 200ms (Views: 155.3ms | ActiveRecord: 2.9ms | Allocations: 2155816)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:56:38 -0700
+Processing by BeerController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.3ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 135.1ms | Allocations: 1500960)
+  Rendered beer/new.html.erb within layouts/application (Duration: 147.2ms | Allocations: 1624588)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 212.4ms | Allocations: 2320375)
+Completed 200 OK in 239ms (Views: 221.4ms | ActiveRecord: 1.3ms | Allocations: 2616220)
+
+
+Started GET "/beer/1" for ::1 at 2021-06-26 13:56:46 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.4ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (3.9ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 58.2ms | Allocations: 614150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 133.3ms | Allocations: 1367477)
+Completed 200 OK in 183ms (Views: 137.7ms | ActiveRecord: 5.3ms | Allocations: 1918839)
+
+
+Started GET "/beer/1/edit" for ::1 at 2021-06-26 13:56:55 -0700
+Processing by BeerController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBeer Load (1.8ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/edit.html.erb within layouts/application
+  [1m[36mBrewery Load (1.2ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/_newEdit.html.erb:19
+  Rendered beer/_newEdit.html.erb (Duration: 129.9ms | Allocations: 1450936)
+  Rendered beer/edit.html.erb within layouts/application (Duration: 139.8ms | Allocations: 1542187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 205.1ms | Allocations: 2237969)
+Completed 200 OK in 259ms (Views: 214.5ms | ActiveRecord: 3.1ms | Allocations: 2829473)
+
+

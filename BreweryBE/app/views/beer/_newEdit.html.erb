@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag 'newBeer.css' %>
+<% if @action == "new" %>
+    <h2>Add a new Beer!!</h2>
+<% else %>
+    <h2> Update your Beer!! </h2>
+<% end %>
+
+<%= form_with model: @beer do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :typeBeer %>
+    <%= f.text_field :typeBeer %>
+    <br><br>
+    <%= f.label :alc %>
+    <%= f.number_field :alc, step: :any %>
+    <br><br>
+    <%= f.label :brewery %>
+    <%= f.collection_select(:brewery_id, @breweries, :id, :name, include_blank: true)%>
+    <br><br>
+    
+    <% if (@action == "new")%>
+        <%= f.submit :Add%>
+    <% else %>
+        <%= f.submit :Update %>
+    <% end %>
+    
+<% end %>
