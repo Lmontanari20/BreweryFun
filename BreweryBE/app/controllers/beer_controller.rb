@@ -11,4 +11,9 @@ class BeerController < ApplicationController
         @beer = Beer.new
         @breweries = Brewery.all
     end
+
+    def create 
+        @beer = Beer.create(name: params[:beer][:name], typeBeer: params[:beer][:typeBeer], alc: params[:beer][:alc], brewery_id: params[:beer][:brewery_id])
+        redirect_to @beer
+    end
 end

@@ -1344,3 +1344,138 @@ Processing by BeerController#new as HTML
 Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 6488)
 
 
+Started GET "/beer/new" for ::1 at 2021-06-26 13:27:08 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BeerController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (2.1ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/new.html.erb:15
+  Rendered beer/new.html.erb within layouts/application (Duration: 76.0ms | Allocations: 15276)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 98.6ms | Allocations: 18843)
+Completed 200 OK in 143ms (Views: 100.9ms | ActiveRecord: 3.1ms | Allocations: 28804)
+
+
+Started POST "/beer" for ::1 at 2021-06-26 13:27:24 -0700
+Processing by BeerController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"the best beer", "typeBeer"=>"IPA ", "alc"=>"7.8", "brewery_id"=>"1"}, "commit"=>"Add"}
+Completed 500 Internal Server Error in 120819ms (ActiveRecord: 0.0ms | Allocations: 329724)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/beer_controller.rb:17:in `create'
+Started GET "/beer/new" for ::1 at 2021-06-26 13:29:33 -0700
+Processing by BeerController#new as HTML
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:11:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.7ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/new.html.erb:15
+  Rendered beer/new.html.erb within layouts/application (Duration: 215.4ms | Allocations: 2402782)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 267.0ms | Allocations: 2931026)
+Completed 200 OK in 481ms (Views: 268.2ms | ActiveRecord: 20.5ms | Allocations: 5288906)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:29:35 -0700
+Processing by BeerController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.8ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/new.html.erb:15
+  Rendered beer/new.html.erb within layouts/application (Duration: 104.1ms | Allocations: 1156455)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 158.3ms | Allocations: 1731727)
+Completed 200 OK in 180ms (Views: 167.6ms | ActiveRecord: 1.8ms | Allocations: 1947009)
+
+
+Started POST "/beer" for ::1 at 2021-06-26 13:29:59 -0700
+Processing by BeerController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Mai Tai PA", "typeBeer"=>"IPA", "alc"=>"7.2", "brewery_id"=>"1"}, "commit"=>"Add"}
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms | Allocations: 1075111)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/beer_controller.rb:16:in `create'
+Started GET "/beer/new" for ::1 at 2021-06-26 13:30:33 -0700
+Processing by BeerController#new as HTML
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:11:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.9ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/new.html.erb:15
+  Rendered beer/new.html.erb within layouts/application (Duration: 259.9ms | Allocations: 2784544)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 318.9ms | Allocations: 3396473)
+Completed 200 OK in 577ms (Views: 322.0ms | ActiveRecord: 21.0ms | Allocations: 6129213)
+
+
+Started POST "/beer" for ::1 at 2021-06-26 13:30:43 -0700
+Processing by BeerController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Mai Tai PA", "typeBeer"=>"IPA ", "alc"=>"7.2", "brewery_id"=>"1"}, "commit"=>"Add"}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mBrewery Load (1.8ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mBeer Create (4.0ms)[0m  [1m[32mINSERT INTO "beers" ("name", "brewery_id", "typeBeer", "alc", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mai Tai PA"], ["brewery_id", 1], ["typeBeer", "IPA "], ["alc", 7.2], ["created_at", "2021-06-26 20:30:43.204424"], ["updated_at", "2021-06-26 20:30:43.204424"]]
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+No template found for BeerController#create, rendering head :no_content
+Completed 204 No Content in 268ms (ActiveRecord: 12.9ms | Allocations: 2438213)
+
+
+Started GET "/beer/new" for ::1 at 2021-06-26 13:32:36 -0700
+Processing by BeerController#new as HTML
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/beer_controller.rb:11:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/new.html.erb within layouts/application
+  [1m[36mBrewery Load (1.7ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries"[0m
+  ↳ app/views/beer/new.html.erb:15
+  Rendered beer/new.html.erb within layouts/application (Duration: 270.2ms | Allocations: 2784538)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 332.3ms | Allocations: 3396470)
+Completed 200 OK in 600ms (Views: 333.0ms | ActiveRecord: 21.2ms | Allocations: 6127594)
+
+
+Started POST "/beer" for ::1 at 2021-06-26 13:32:55 -0700
+Processing by BeerController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "beer"=>{"name"=>"Mango Mai Tai PA", "typeBeer"=>"IPA ", "alc"=>"7.0", "brewery_id"=>"1"}, "commit"=>"Add"}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mBrewery Load (1.7ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mBeer Create (1.8ms)[0m  [1m[32mINSERT INTO "beers" ("name", "brewery_id", "typeBeer", "alc", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mango Mai Tai PA"], ["brewery_id", 1], ["typeBeer", "IPA "], ["alc", 7.0], ["created_at", "2021-06-26 20:32:55.555840"], ["updated_at", "2021-06-26 20:32:55.555840"]]
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/beer_controller.rb:16:in `create'
+Redirected to http://localhost:3000/beer/4
+Completed 302 Found in 212ms (ActiveRecord: 7.2ms | Allocations: 2092568)
+
+
+Started GET "/beer/4" for ::1 at 2021-06-26 13:32:55 -0700
+Processing by BeerController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBeer Load (1.6ms)[0m  [1m[34mSELECT "beers".* FROM "beers" WHERE "beers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/beer_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering beer/show.html.erb within layouts/application
+  [1m[36mBrewery Load (1.1ms)[0m  [1m[34mSELECT "breweries".* FROM "breweries" WHERE "breweries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/beer/show.html.erb:5
+  Rendered beer/show.html.erb within layouts/application (Duration: 50.6ms | Allocations: 492560)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 191.4ms | Allocations: 1888862)
+Completed 200 OK in 253ms (Views: 201.4ms | ActiveRecord: 2.7ms | Allocations: 2507298)
+
+
